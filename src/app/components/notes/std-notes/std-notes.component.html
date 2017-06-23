@@ -1,0 +1,60 @@
+<div class="component-container" style="background-color: orange">
+    <div class="container-fluid">
+        <div class="row bottom-shadow"
+             style="background-color: darkorange; height: 48px; position: fixed; width: 100%; z-index: 100000">
+            <div class="col align-self-center">
+                <span class="align-items-center"
+                      style="margin-top: 4px; width: 24px; cursor: pointer">
+                    <i class="material-icons" (click)="show = !show">menu</i>
+                </span>
+            </div>
+            <div class="col-4 row">
+                <input class="form-control align-self-center col search-bar" type="search" placeholder="Suche...">
+                <button class="form-control search align-self-center"><i class="material-icons"
+                                                                         style="margin-left: -5px">search</i></button>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+    <div class="side-bar right-shadow" [ngClass]="{'show':show}">
+        <nav style="margin-top: 12px">
+            <h4 style="margin-left: 16px">Filter</h4>
+            <div style="margin: 8px">
+                <ngb-accordion #acc="ngbAccordion">
+                    <ngb-panel title="Fächer">
+                        <ng-template ngbPanelContent>
+                            <div>
+                                <div class="row align-items-center col" *ngFor="let x of [1,2,3,4,5,6,7,8]">
+                                    <input type="checkbox">
+                                    <div style="margin-left: 4px" class="black-color">Fachadawdwadawd {{x}}</div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ngb-panel>
+                    <ngb-panel title="Themen">
+                        <ng-template ngbPanelContent>
+                            <div>
+                                <div class="row align-items-center col"
+                                     *ngFor="let x of [1,2,3,4,5,6,7,8,2,34,234,2,4,234,234,23,423,4,234,23,42,34,434]">
+                                    <input type="checkbox">
+                                    <span style="margin-left: 4px" class="black-color">Fachadawdwadawd {{x}}</span>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ngb-panel>
+                </ngb-accordion>
+            </div>
+        </nav>
+    </div>
+    <div class="container-fluid animate" [ngClass]="{'margin-left-300':show, 'margin-left-0': !show}">
+        <div class="card" style="margin-top: 8px" *ngFor="let x of [1,2,3,4,5,6,7]">
+            <div class="card-header">{{x}}</div>
+            <div class="card-block">awdwadawdawdadawdawdadw</div>
+        </div>
+    </div>
+    <div>
+        <button class="form-control round-button" placement="left" ngbTooltip="Notiz hinzufügen">
+            <i class="material-icons" style="margin-top: 4px">add</i>
+        </button>
+    </div>
+</div>

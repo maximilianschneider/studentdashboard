@@ -1,0 +1,80 @@
+<ng-template #content let-c="close" let-d="dismiss">
+    <form #editLessonForm="ngForm" (ngSubmit)="editLessonForm.valid ? onSave(editLessonForm.valid) && c() : null">
+        <div class="modal-header">
+            <h4 class="modal-title">Stunde bearbeiten</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div>
+                <div class="card-block">
+                    <div>
+                        <div style="margin-top: 8px" class="form-group">
+                            <label style="margin-bottom: 0" for="subject">Fach:</label>
+                            <div class="row" ngbDropdown #subjectDrop="ngbDropdown">
+                                <input type="text" class="form-control custom col" [(ngModel)]="hour.lesson"
+                                       id="subject"
+                                       name="subject" #subject="ngModel" required
+                                       (click)="$event.stopPropagation(); subjectDrop.open();">
+                                <button class="btn custom btn-outline-primary col-1" id="dropDownSubject"
+                                        ngbDropdownToggle></button>
+                                <div class="dropdown-menu" aria-labelledby="dropDownSubject">
+                                    <button *ngFor="let value of [1,2,3,4,5,6,7]" class="dropdown-item"
+                                            (click)="hour.lesson = value">{{value}}
+                                    </button>
+                                </div>
+                            </div>
+                            <small style="margin-left: 4px"
+                                   *ngIf="subject.errors && ((subject.dirty || subject.touched) || editLessonForm.submitted)"
+                                   class="text-danger">
+                                <small *ngIf="subject.errors.required">Erforderlich</small>
+                            </small>
+                        </div>
+                        <div style="margin-top: 8px" class="form-group">
+                            <label style="margin-bottom: 0" for="teacher">Lehrer:</label>
+                            <div class="row" ngbDropdown #teacherDrop="ngbDropdown">
+                                <input type="text" class="form-control custom col" [(ngModel)]="hour.teacher"
+                                       id="teacher"
+                                       name="teacher" #teacher="ngModel" required
+                                       (click)="$event.stopPropagation(); teacherDrop.open();">
+                                <button class="btn custom btn-outline-primary col-1" id="dropDownTeacher"
+                                        ngbDropdownToggle></button>
+                                <div class="dropdown-menu" aria-labelledby="dropDownTeacher">
+                                    <button *ngFor="let value of [1,2,3,4,5,6,7]" class="dropdown-item"
+                                            (click)="hour.teacher = value">{{value}}
+                                    </button>
+                                </div>
+                            </div>
+                            <small style="margin-left: 4px"
+                                   *ngIf="teacher.errors && ((teacher.dirty || teacher.touched) || editLessonForm.submitted)"
+                                   class="text-danger">
+                                <small *ngIf="teacher.errors.required">Erforderlich</small>
+                            </small>
+                        </div>
+                        <div style="margin-top: 8px" class="form-group">
+                            <label style="margin-bottom: 0" for="room">Raum:</label>
+                            <input type="text" class="form-control custom col" [(ngModel)]="hour.room" id="room"
+                                   name="room" #room="ngModel" required>
+                            <small style="margin-left: 4px"
+                                   *ngIf="room.errors && ((room.dirty || room.touched) || editLessonForm.submitted)"
+                                   class="text-danger">
+                                <small *ngIf="room.errors.required">Erforderlich</small>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-secondary">Speichern</button>
+            <button type="button" class="btn btn-secondary" (click)="d('abort click')">Abbrechen</button>
+        </div>
+    </form>
+</ng-template>
+
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
+
+<hr>
+
+<pre>{{closeResult}}</pre>

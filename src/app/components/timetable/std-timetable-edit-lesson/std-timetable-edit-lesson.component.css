@@ -1,0 +1,22 @@
+.row {
+    margin: 0 !important;
+}
+
+.form-control.custom {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.btn.custom {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: -1px;
+}
+
+.custom.dropdown-toggle::after {
+    margin-left: -.3em;
+}
+
+.dropdown-menu {
+    right: 0;
+}

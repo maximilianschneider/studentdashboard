@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header" [routerLink]="['/notes']" style="cursor: pointer; outline: none;">
+            Unterrichtsmitschriften
+        </div>
+        <div class="card-block">
+            <div class="row" *ngFor="let x of [1,2,3,4,5]">
+                <div class="col">
+                    afuhaehiufsuhif
+                </div>
+                <div class="row">
+                    <div>
+                    <span *ngFor="let x of [1,2,3,4,5,5,6,7]">
+                        Tag+{{x}}
+                    </span>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">Stundenplan</div>
+        <div class="card-block nopadding" style="overflow-x: auto">
+            <div class="row">
+                <div class="col no-margin border-right border-bottom text-center">
+                    Stunde
+                </div>
+                <div class="col no-margin border-bottom text-center"
+                     *ngFor="let i of ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag']; let last = last"
+                     [ngClass]="{'border-right':!last}">
+                    {{i}}
+                </div>
+            </div>
+            <div class="row" *ngFor="let y of [1,2,3,4,5,6] let lastRow = last;" [ngClass]="{'border-bottom':!lastRow}">
+                <div class="col no-margin border-right text-center">
+                    <div class="row text-center">
+                        <span class="col no-margin text-center" style="font-size: 16px">{{y}}</span>
+                    </div>
+                    <div class="row text-center">
+                        <span class="col no-margin text-center"
+                              style="font-size: 10px;">{{(y+8)}}:00 - {{(y+9)}}:00 Uhr</span>
+                    </div>
+                </div>
+                <div class="col no-margin text-center" *ngFor="let z of [1,2,3,4,5] let last = last"
+                     [ngClass]="{'border-right':!last}">
+                    <div class="row text-center">
+                        <span class="col no-margin text-center" style=" font-size: 13px"> Englisch</span>
+                    </div>
+                    <div class="row text-center">
+                        <span class="col no-margin text-center"
+                              style="color: #9E9E9E; font-size: 11px; overflow: hidden;">Mro</span>
+                    </div>
+                    <div class="row text-center">
+                        <span class="col no-margin text-center" style="color: #9E9E9E; font-size: 11px">123</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="navbar-inverse fixed-header" style="background-color: #FFC107;">
+    <div class="row align-items-center" style="height: 60px; margin-left: 0; margin-right: 0">
+        <span class="align-items-center"
+              style="margin-top: 4px; margin-right: 16px; width: 24px; margin-left: 16px; cursor: pointer; outline: none;"
+              [hidden]="!showBackButton"> <i class="material-icons" [routerLink]="['/dashboard']">arrow_back</i></span>
+        <div class="col align-items-center">
+            <img class="img-circle"
+                 src="https://cwiki.apache.org/confluence/download/attachments/27845093/AIRAVATA?version=3&modificationDate=1468419319000&api=v2"
+                 width="36px" height="36px"
+                 alt="Mountain View">
+            <span style="margin-left: 16px" class="navbar-brand dark">{{title}}</span>
+        </div>
+        <div class="col-auto"></div>
+        <div class="col-auto">
+            <div style="margin-right: 16px; line-height: 30px" [hidden]="!authService.isLoggedIn">
+                <div class="card" style="background-color: rgb(247, 247, 247)">
+                    <div class="card-block custom-toggle d-inline-block" ngbDropdown>
+                        <div class="custom-toggle row"
+                             style="cursor: pointer; outline: none; margin-left: 0; margin-right: 0"
+                             ngbDropdownToggle>
+                            <img class="img-circle col-md-auto"
+                                 src="https://vignette1.wikia.nocookie.net/blogclan-2/images/4/45/Random-turtle.gif/revision/latest?cb=20160706220110"
+                                 height="30px"
+                                 alt="Mountain View">
+                            <span class="col-md-auto"
+                                  style="margin-left: 4px; margin-right: 4px; -webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;">{{this.user ? (user.firstname + " " + user.lastname) : ''}}</span>
+                        </div>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownBasic1">
+                            <button class="dropdown-item">
+                                <div class="row align-items-center">
+                                    <i class="material-icons col-1">settings</i>
+                                    <div class="col" style="margin-left: 4px">Einstellungen</div>
+                                </div>
+                            </button>
+                            <div role="separator" style="border-bottom: 1px solid rgba(0,0,0,.125)"></div>
+                            <button class="dropdown-item">
+                                <div class="row align-items-center">
+                                    <i class="material-icons col-1">exit_to_app</i>
+                                    <div class="col" style="margin-left: 4px; cursor: pointer" (click)="logout()">
+                                        Logout
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

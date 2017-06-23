@@ -1,1 +1,55 @@
-/* You can add global styles to this file, and also import other style files */
+
+.viewport {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.loader-container {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+}
+
+.loader-container .loader-center {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 100px;
+    margin: auto;
+}
+
+.loader-container .loader-center .loader {
+    border: 8px solid #f7f7f9;
+    border-top: 8px solid rgb(255, 193, 7);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: loader-spin 2s linear infinite;
+}
+
+@keyframes loader-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.component-container {
+    padding-top: 60px;
+    padding-bottom: 50px;
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+}

@@ -1,0 +1,26 @@
+<div class="component-container" style="background-color: orange">
+    <div class="container-fluid col">
+        <div class="row align-items-center">
+            <div class="col hidden-sm-down"></div>
+            <div class="col-12 col-md-4">
+                <div class="card" style="margin-top: 64px;">
+                    <div class="card-block">
+                        <ngb-tabset type="pills">
+                            <ngb-tab title="Login">
+                                <ng-template ngbTabContent>
+                                    <app-std-login-login></app-std-login-login>
+                                </ng-template>
+                            </ngb-tab>
+                            <ngb-tab title="Registrieren">
+                                <ng-template ngbTabContent>
+                                    <app-std-login-register></app-std-login-register>
+                                </ng-template>
+                            </ngb-tab>
+                        </ngb-tabset>
+                    </div>
+                </div>
+            </div>
+            <div class="col hidden-sm-down"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">Stundenplan</div>
+        <div class="card-block nopadding" style="overflow-x: auto">
+            <div class="row">
+                <div class="col no-margin border-right border-bottom text-center">
+                    Stunde
+                </div>
+                <div class="col no-margin border-bottom text-center"
+                     *ngFor="let day of timetable.days; let last = last"
+                     [ngClass]="{'border-right':!last}">
+                    {{day}}
+                </div>
+            </div>
+            <div class="row" *ngFor="let hour of timetable.getHours() let lastRow = last;"
+                 [ngClass]="{'border-bottom':!lastRow}">
+                <div class="col no-margin border-right text-center">
+                    <div class="row text-center">
+                        <span class="col no-margin text-center" style="font-size: 16px">{{hour}}</span>
+                    </div>
+                    <div class="row text-center">
+                        <span class="col no-margin text-center"
+                              style="font-size: 10px;">{{(hour+8)}}:00 - {{(hour+9)}}:00 Uhr</span>
+                    </div>
+                </div>
+                <div class="col no-margin text-center"
+                     *ngFor="let  day of timetable.days; let last = last;"
+                     [ngClass]="{'border-right':!last}">
+                    <div class="row text-center">
+                            <span class="col no-margin text-center"
+                                  style=" font-size: 13px">{{timetable.lessons[day][hour] ? timetable.lessons[day][hour].subject.name: ''}}</span>
+                    </div>
+                    <div class="row text-center">
+                        <span class="col no-margin text-center"
+                              style="color: #9E9E9E; font-size: 11px; overflow: hidden;">{{timetable.lessons[day][hour] ? timetable.lessons[day][hour].teacher: ''}}</span>
+                    </div>
+                    <div class="row text-center">
+                        <span class="col no-margin text-center"
+                              style="color: #9E9E9E; font-size: 11px">{{timetable.lessons[day][hour] ? timetable.lessons[day][hour].room: ''}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
